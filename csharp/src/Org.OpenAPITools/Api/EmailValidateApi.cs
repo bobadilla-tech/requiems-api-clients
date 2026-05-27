@@ -340,8 +340,8 @@ namespace Org.OpenAPITools.Api
                         ? "/v1/validation/email/batch"
                         : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/validation/email/batch");
 
-                    httpRequestMessageLocalVar.Content = (v1ValidationEmailBatchPostRequest as object) is Org.OpenAPITools.Client.FileParameter fileParameterLocalVar
-                        ? httpRequestMessageLocalVar.Content = new StreamContent(fileParameterLocalVar.Content)
+                    httpRequestMessageLocalVar.Content = (v1ValidationEmailBatchPostRequest as object) is System.IO.Stream stream
+                        ? httpRequestMessageLocalVar.Content = new StreamContent(stream)
                         : httpRequestMessageLocalVar.Content = new StringContent(JsonSerializer.Serialize(v1ValidationEmailBatchPostRequest, _jsonSerializerOptions));
 
                     List<TokenBase> tokenBaseLocalVars = new List<TokenBase>();
@@ -621,8 +621,8 @@ namespace Org.OpenAPITools.Api
                         ? "/v1/validation/email"
                         : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/validation/email");
 
-                    httpRequestMessageLocalVar.Content = (v1ValidationEmailPostRequest as object) is Org.OpenAPITools.Client.FileParameter fileParameterLocalVar
-                        ? httpRequestMessageLocalVar.Content = new StreamContent(fileParameterLocalVar.Content)
+                    httpRequestMessageLocalVar.Content = (v1ValidationEmailPostRequest as object) is System.IO.Stream stream
+                        ? httpRequestMessageLocalVar.Content = new StreamContent(stream)
                         : httpRequestMessageLocalVar.Content = new StringContent(JsonSerializer.Serialize(v1ValidationEmailPostRequest, _jsonSerializerOptions));
 
                     List<TokenBase> tokenBaseLocalVars = new List<TokenBase>();

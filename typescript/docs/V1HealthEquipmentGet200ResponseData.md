@@ -1,23 +1,22 @@
 # V1HealthEquipmentGet200ResponseData
 
+
 ## Properties
 
-| Name      | Type                 | Description                                 | Notes                             |
-| --------- | -------------------- | ------------------------------------------- | --------------------------------- |
-| **items** | **Array&lt;any&gt;** | Sorted list of all distinct equipment names | [optional] [default to undefined] |
-| **total** | **number**           | Total number of distinct equipment types    | [optional] [default to undefined] |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**items** | **Array&lt;any&gt;** | Sorted list of all distinct equipment names | [optional] [default to undefined]
+**total** | **number** | Total number of distinct equipment types | [optional] [default to undefined]
 
 ## Example
 
 ```typescript
-import { V1HealthEquipmentGet200ResponseData } from "./api";
+import { V1HealthEquipmentGet200ResponseData } from './api';
 
 const instance: V1HealthEquipmentGet200ResponseData = {
-  items,
-  total,
+    items,
+    total,
 };
 ```
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

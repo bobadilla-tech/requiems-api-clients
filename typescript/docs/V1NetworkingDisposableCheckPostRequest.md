@@ -1,21 +1,20 @@
 # V1NetworkingDisposableCheckPostRequest
 
+
 ## Properties
 
-| Name      | Type       | Description                | Notes                  |
-| --------- | ---------- | -------------------------- | ---------------------- |
-| **email** | **string** | The email address to check | [default to undefined] |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**email** | **string** | The email address to check | [default to undefined]
 
 ## Example
 
 ```typescript
-import { V1NetworkingDisposableCheckPostRequest } from "./api";
+import { V1NetworkingDisposableCheckPostRequest } from './api';
 
 const instance: V1NetworkingDisposableCheckPostRequest = {
-  email,
+    email,
 };
 ```
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

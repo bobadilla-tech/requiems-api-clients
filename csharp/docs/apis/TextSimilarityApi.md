@@ -1,27 +1,25 @@
 # Org.OpenAPITools.Api.TextSimilarityApi
 
-All URIs are relative to _https://api.requiems.xyz_
+All URIs are relative to *https://api.requiems.xyz*
 
-| Method                                                                | HTTP request                 | Description             |
-| --------------------------------------------------------------------- | ---------------------------- | ----------------------- |
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
 | [**V1TextSimilarityPost**](TextSimilarityApi.md#v1textsimilaritypost) | **POST** /v1/text/similarity | Compare Text Similarity |
 
 <a id="v1textsimilaritypost"></a>
-
 # **V1TextSimilarityPost**
-
-> V1TextSimilarityPost200Response V1TextSimilarityPost
-> (V1TextSimilarityPostRequest v1TextSimilarityPostRequest)
+> V1TextSimilarityPost200Response V1TextSimilarityPost (V1TextSimilarityPostRequest v1TextSimilarityPostRequest)
 
 Compare Text Similarity
 
 Compares two texts and returns a cosine similarity score.
 
+
 ### Parameters
 
-| Name                            | Type                                                              | Description | Notes |
-| ------------------------------- | ----------------------------------------------------------------- | ----------- | ----- |
-| **v1TextSimilarityPostRequest** | [**V1TextSimilarityPostRequest**](V1TextSimilarityPostRequest.md) |             |       |
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **v1TextSimilarityPostRequest** | [**V1TextSimilarityPostRequest**](V1TextSimilarityPostRequest.md) |  |  |
 
 ### Return type
 
@@ -33,19 +31,17 @@ Compares two texts and returns a cosine similarity score.
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | The request body is missing or malformed. |  -  |
+| **422** | One or both text fields are missing or empty. |  -  |
+| **500** | Unexpected server error. |  -  |
 
-| Status code | Description                                   | Response headers |
-| ----------- | --------------------------------------------- | ---------------- |
-| **200**     | Successful response                           | -                |
-| **400**     | The request body is missing or malformed.     | -                |
-| **422**     | One or both text fields are missing or empty. | -                |
-| **500**     | Unexpected server error.                      | -                |
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-[[Back to top]](#)
-[[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
-[[Back to README]](../../README.md)

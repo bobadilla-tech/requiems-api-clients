@@ -1,21 +1,20 @@
 # V1TechnologyMarkdownPost200ResponseData
 
+
 ## Properties
 
-| Name     | Type       | Description              | Notes                             |
-| -------- | ---------- | ------------------------ | --------------------------------- |
-| **html** | **string** | The rendered HTML output | [optional] [default to undefined] |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**html** | **string** | The rendered HTML output | [optional] [default to undefined]
 
 ## Example
 
 ```typescript
-import { V1TechnologyMarkdownPost200ResponseData } from "./api";
+import { V1TechnologyMarkdownPost200ResponseData } from './api';
 
 const instance: V1TechnologyMarkdownPost200ResponseData = {
-  html,
+    html,
 };
 ```
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

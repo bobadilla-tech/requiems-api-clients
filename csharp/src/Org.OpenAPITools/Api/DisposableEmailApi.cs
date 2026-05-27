@@ -487,8 +487,8 @@ namespace Org.OpenAPITools.Api
                         ? "/v1/networking/disposable/batch"
                         : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/networking/disposable/batch");
 
-                    httpRequestMessageLocalVar.Content = (v1NetworkingDisposableBatchPostRequest as object) is Org.OpenAPITools.Client.FileParameter fileParameterLocalVar
-                        ? httpRequestMessageLocalVar.Content = new StreamContent(fileParameterLocalVar.Content)
+                    httpRequestMessageLocalVar.Content = (v1NetworkingDisposableBatchPostRequest as object) is System.IO.Stream stream
+                        ? httpRequestMessageLocalVar.Content = new StreamContent(stream)
                         : httpRequestMessageLocalVar.Content = new StringContent(JsonSerializer.Serialize(v1NetworkingDisposableBatchPostRequest, _jsonSerializerOptions));
 
                     List<TokenBase> tokenBaseLocalVars = new List<TokenBase>();
@@ -756,8 +756,8 @@ namespace Org.OpenAPITools.Api
                         ? "/v1/networking/disposable/check"
                         : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/networking/disposable/check");
 
-                    httpRequestMessageLocalVar.Content = (v1NetworkingDisposableCheckPostRequest as object) is Org.OpenAPITools.Client.FileParameter fileParameterLocalVar
-                        ? httpRequestMessageLocalVar.Content = new StreamContent(fileParameterLocalVar.Content)
+                    httpRequestMessageLocalVar.Content = (v1NetworkingDisposableCheckPostRequest as object) is System.IO.Stream stream
+                        ? httpRequestMessageLocalVar.Content = new StreamContent(stream)
                         : httpRequestMessageLocalVar.Content = new StringContent(JsonSerializer.Serialize(v1NetworkingDisposableCheckPostRequest, _jsonSerializerOptions));
 
                     List<TokenBase> tokenBaseLocalVars = new List<TokenBase>();

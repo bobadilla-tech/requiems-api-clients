@@ -316,8 +316,8 @@ namespace Org.OpenAPITools.Api
                         ? "/v1/finance/iban/batch"
                         : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/finance/iban/batch");
 
-                    httpRequestMessageLocalVar.Content = (v1FinanceIbanBatchPostRequest as object) is Org.OpenAPITools.Client.FileParameter fileParameterLocalVar
-                        ? httpRequestMessageLocalVar.Content = new StreamContent(fileParameterLocalVar.Content)
+                    httpRequestMessageLocalVar.Content = (v1FinanceIbanBatchPostRequest as object) is System.IO.Stream stream
+                        ? httpRequestMessageLocalVar.Content = new StreamContent(stream)
                         : httpRequestMessageLocalVar.Content = new StringContent(JsonSerializer.Serialize(v1FinanceIbanBatchPostRequest, _jsonSerializerOptions));
 
                     List<TokenBase> tokenBaseLocalVars = new List<TokenBase>();

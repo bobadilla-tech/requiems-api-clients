@@ -1,27 +1,24 @@
 # SpellCheckApi
 
-All URIs are relative to _https://api.requiems.xyz_
+All URIs are relative to *https://api.requiems.xyz*
 
-| Method                                            | HTTP request                 | Description    |
-| ------------------------------------------------- | ---------------------------- | -------------- |
-| [**v1TextSpellcheckPost**](#v1textspellcheckpost) | **POST** /v1/text/spellcheck | Check Spelling |
+|Method | HTTP request | Description|
+|------------- | ------------- | -------------|
+|[**v1TextSpellcheckPost**](#v1textspellcheckpost) | **POST** /v1/text/spellcheck | Check Spelling|
 
 # **v1TextSpellcheckPost**
+> V1TextSpellcheckPost200Response v1TextSpellcheckPost(v1TextSpellcheckPostRequest)
 
-> V1TextSpellcheckPost200Response
-> v1TextSpellcheckPost(v1TextSpellcheckPostRequest)
-
-Checks the input text for spelling mistakes and returns a corrected version
-along with per-word corrections.
+Checks the input text for spelling mistakes and returns a corrected version along with per-word corrections.
 
 ### Example
 
 ```typescript
 import {
-  Configuration,
-  SpellCheckApi,
-  V1TextSpellcheckPostRequest,
-} from "./api";
+    SpellCheckApi,
+    Configuration,
+    V1TextSpellcheckPostRequest
+} from './api';
 
 const configuration = new Configuration();
 const apiInstance = new SpellCheckApi(configuration);
@@ -29,15 +26,16 @@ const apiInstance = new SpellCheckApi(configuration);
 let v1TextSpellcheckPostRequest: V1TextSpellcheckPostRequest; //
 
 const { status, data } = await apiInstance.v1TextSpellcheckPost(
-  v1TextSpellcheckPostRequest,
+    v1TextSpellcheckPostRequest
 );
 ```
 
 ### Parameters
 
-| Name                            | Type                            | Description | Notes |
-| ------------------------------- | ------------------------------- | ----------- | ----- |
-| **v1TextSpellcheckPostRequest** | **V1TextSpellcheckPostRequest** |             |       |
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **v1TextSpellcheckPostRequest** | **V1TextSpellcheckPostRequest**|  | |
+
 
 ### Return type
 
@@ -49,19 +47,17 @@ const { status, data } = await apiInstance.v1TextSpellcheckPost(
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | Successful response |  -  |
+|**400** | The request body is missing or malformed. |  -  |
+|**422** | The text field is missing or empty. |  -  |
+|**500** | Unexpected server error. |  -  |
 
-| Status code | Description                               | Response headers |
-| ----------- | ----------------------------------------- | ---------------- |
-| **200**     | Successful response                       | -                |
-| **400**     | The request body is missing or malformed. | -                |
-| **422**     | The text field is missing or empty.       | -                |
-| **500**     | Unexpected server error.                  | -                |
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)

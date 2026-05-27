@@ -1,32 +1,29 @@
 # Org.OpenAPITools.Api.DisposableEmailApi
 
-All URIs are relative to _https://api.requiems.xyz_
+All URIs are relative to *https://api.requiems.xyz*
 
-| Method                                                                                                   | HTTP request                                      | Description              |
-| -------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | ------------------------ |
-| [**V1NetworkingDisposableBatchPost**](DisposableEmailApi.md#v1networkingdisposablebatchpost)             | **POST** /v1/networking/disposable/batch          | Check Batch Emails       |
-| [**V1NetworkingDisposableCheckPost**](DisposableEmailApi.md#v1networkingdisposablecheckpost)             | **POST** /v1/networking/disposable/check          | Check Single Email       |
-| [**V1NetworkingDisposableDomainDomainGet**](DisposableEmailApi.md#v1networkingdisposabledomaindomainget) | **GET** /v1/networking/disposable/domain/{domain} | Check Domain             |
-| [**V1NetworkingDisposableDomainsGet**](DisposableEmailApi.md#v1networkingdisposabledomainsget)           | **GET** /v1/networking/disposable/domains         | List Domains (Paginated) |
-| [**V1NetworkingDisposableStatsGet**](DisposableEmailApi.md#v1networkingdisposablestatsget)               | **GET** /v1/networking/disposable/stats           | Get Statistics           |
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
+| [**V1NetworkingDisposableBatchPost**](DisposableEmailApi.md#v1networkingdisposablebatchpost) | **POST** /v1/networking/disposable/batch | Check Batch Emails |
+| [**V1NetworkingDisposableCheckPost**](DisposableEmailApi.md#v1networkingdisposablecheckpost) | **POST** /v1/networking/disposable/check | Check Single Email |
+| [**V1NetworkingDisposableDomainDomainGet**](DisposableEmailApi.md#v1networkingdisposabledomaindomainget) | **GET** /v1/networking/disposable/domain/{domain} | Check Domain |
+| [**V1NetworkingDisposableDomainsGet**](DisposableEmailApi.md#v1networkingdisposabledomainsget) | **GET** /v1/networking/disposable/domains | List Domains (Paginated) |
+| [**V1NetworkingDisposableStatsGet**](DisposableEmailApi.md#v1networkingdisposablestatsget) | **GET** /v1/networking/disposable/stats | Get Statistics |
 
 <a id="v1networkingdisposablebatchpost"></a>
-
 # **V1NetworkingDisposableBatchPost**
-
-> V1NetworkingDisposableBatchPost200Response V1NetworkingDisposableBatchPost
-> (V1NetworkingDisposableBatchPostRequest
-> v1NetworkingDisposableBatchPostRequest)
+> V1NetworkingDisposableBatchPost200Response V1NetworkingDisposableBatchPost (V1NetworkingDisposableBatchPostRequest v1NetworkingDisposableBatchPostRequest)
 
 Check Batch Emails
 
 Validate multiple email addresses in a single request (max 100 emails)
 
+
 ### Parameters
 
-| Name                                       | Type                                                                                    | Description | Notes |
-| ------------------------------------------ | --------------------------------------------------------------------------------------- | ----------- | ----- |
-| **v1NetworkingDisposableBatchPostRequest** | [**V1NetworkingDisposableBatchPostRequest**](V1NetworkingDisposableBatchPostRequest.md) |             |       |
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **v1NetworkingDisposableBatchPostRequest** | [**V1NetworkingDisposableBatchPostRequest**](V1NetworkingDisposableBatchPostRequest.md) |  |  |
 
 ### Return type
 
@@ -38,38 +35,32 @@ Validate multiple email addresses in a single request (max 100 emails)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | The request body is missing or malformed; The emails field is missing; Too many emails in the request |  -  |
 
-| Status code | Description                                                                                           | Response headers |
-| ----------- | ----------------------------------------------------------------------------------------------------- | ---------------- |
-| **200**     | Successful response                                                                                   | -                |
-| **400**     | The request body is missing or malformed; The emails field is missing; Too many emails in the request | -                |
-
-[[Back to top]](#)
-[[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
-[[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 <a id="v1networkingdisposablecheckpost"></a>
-
 # **V1NetworkingDisposableCheckPost**
-
-> V1NetworkingDisposableCheckPost200Response V1NetworkingDisposableCheckPost
-> (V1NetworkingDisposableCheckPostRequest
-> v1NetworkingDisposableCheckPostRequest)
+> V1NetworkingDisposableCheckPost200Response V1NetworkingDisposableCheckPost (V1NetworkingDisposableCheckPostRequest v1NetworkingDisposableCheckPostRequest)
 
 Check Single Email
 
 Validate whether an email address uses a disposable domain
 
+
 ### Parameters
 
-| Name                                       | Type                                                                                    | Description | Notes |
-| ------------------------------------------ | --------------------------------------------------------------------------------------- | ----------- | ----- |
-| **v1NetworkingDisposableCheckPostRequest** | [**V1NetworkingDisposableCheckPostRequest**](V1NetworkingDisposableCheckPostRequest.md) |             |       |
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **v1NetworkingDisposableCheckPostRequest** | [**V1NetworkingDisposableCheckPostRequest**](V1NetworkingDisposableCheckPostRequest.md) |  |  |
 
 ### Return type
 
@@ -81,37 +72,32 @@ Validate whether an email address uses a disposable domain
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | The request body is missing or malformed; The email address format is invalid |  -  |
 
-| Status code | Description                                                                   | Response headers |
-| ----------- | ----------------------------------------------------------------------------- | ---------------- |
-| **200**     | Successful response                                                           | -                |
-| **400**     | The request body is missing or malformed; The email address format is invalid | -                |
-
-[[Back to top]](#)
-[[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
-[[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 <a id="v1networkingdisposabledomaindomainget"></a>
-
 # **V1NetworkingDisposableDomainDomainGet**
-
-> V1NetworkingDisposableDomainDomainGet200Response
-> V1NetworkingDisposableDomainDomainGet (string domain)
+> V1NetworkingDisposableDomainDomainGet200Response V1NetworkingDisposableDomainDomainGet (string domain)
 
 Check Domain
 
 Check if a specific domain is in the disposable blocklist
 
+
 ### Parameters
 
-| Name       | Type       | Description         | Notes |
-| ---------- | ---------- | ------------------- | ----- |
-| **domain** | **string** | The domain to check |       |
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **domain** | **string** | The domain to check |  |
 
 ### Return type
 
@@ -123,38 +109,33 @@ Check if a specific domain is in the disposable blocklist
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | The domain parameter is missing |  -  |
 
-| Status code | Description                     | Response headers |
-| ----------- | ------------------------------- | ---------------- |
-| **200**     | Successful response             | -                |
-| **400**     | The domain parameter is missing | -                |
-
-[[Back to top]](#)
-[[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
-[[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 <a id="v1networkingdisposabledomainsget"></a>
-
 # **V1NetworkingDisposableDomainsGet**
-
-> V1NetworkingDisposableDomainsGet200Response V1NetworkingDisposableDomainsGet
-> (int page = null, int perPage = null)
+> V1NetworkingDisposableDomainsGet200Response V1NetworkingDisposableDomainsGet (int page = null, int perPage = null)
 
 List Domains (Paginated)
 
 Get a paginated list of all disposable domains in the blocklist
 
+
 ### Parameters
 
-| Name        | Type    | Description                              | Notes      |
-| ----------- | ------- | ---------------------------------------- | ---------- |
-| **page**    | **int** | Page number (default: 1)                 | [optional] |
-| **perPage** | **int** | Items per page (default: 100, max: 1000) | [optional] |
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **page** | **int** | Page number (default: 1) | [optional]  |
+| **perPage** | **int** | Items per page (default: 100, max: 1000) | [optional]  |
 
 ### Return type
 
@@ -166,34 +147,28 @@ Get a paginated list of all disposable domains in the blocklist
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
 
-| Status code | Description         | Response headers |
-| ----------- | ------------------- | ---------------- |
-| **200**     | Successful response | -                |
-
-[[Back to top]](#)
-[[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
-[[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 <a id="v1networkingdisposablestatsget"></a>
-
 # **V1NetworkingDisposableStatsGet**
-
 > V1NetworkingDisposableStatsGet200Response V1NetworkingDisposableStatsGet ()
 
 Get Statistics
 
 Get statistics about the disposable email blocklist
 
+
 ### Parameters
-
 This endpoint does not need any parameter.
-
 ### Return type
 
 [**V1NetworkingDisposableStatsGet200Response**](V1NetworkingDisposableStatsGet200Response.md)
@@ -204,16 +179,14 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
 
-| Status code | Description         | Response headers |
-| ----------- | ------------------- | ---------------- |
-| **200**     | Successful response | -                |
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-[[Back to top]](#)
-[[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
-[[Back to README]](../../README.md)
