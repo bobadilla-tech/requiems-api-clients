@@ -1,0 +1,64 @@
+name: Weekly Client Regeneration
+
+on:
+  schedule:
+    # Se ejecuta todos los lunes a la medianoche UTC
+    - cron: '0 0 * * 1'
+  workflow_dispatch:
+
+jobs:
+  regenerate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: 🌐 Descargar la última especificación OpenAPI
+        run: curl -sL https://api.requiems.xyz/openapi.json -o openapi.json
+
+      - name: 🛠️ Generar clientes (TS, C#, Python, Ruby, Go)
+        run: |
+          # TypeScript / JS
+          npx @openapitools/openapi-generator-cli generate -i openapi.json -g typescript-axios -o typescript
+          
+          # C#
+          npx @openapitools/openapi-generator-cli generate -i openapi.json -g csharp -o csharp
+          
+          # Python
+          npx @openapitools/openapi-generator-cli generate -i openapi.json -g python -o python
+          
+          # Ruby
+          npx @openapitools/openapi-generator-cli generate -i openapi.json -g ruby -o ruby
+          
+          # Go
+          npx @openapitools/openapi-generator-cli generate -i openapi.json -g go -o go
+
+      - name: 🔍 Detectar cambios y actualizar versión (Version Bump)
+        id: check_changes
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "Cambios detectados. Preparando PR..."
+          else
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "No hay diferencias en los clientes generados."
+          fi
+
+      - name: 🚀 Crear Pull Request
+        if: steps.check_changes.outputs.has_changes == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore: regenerar clientes OpenAPI"
+          title: "Automated: Weekly Client Regeneration"
+          body: |
+            Se ha detectado una actualización en la especificación de la API.
+            
+            Este PR automático contiene:
+            - Último archivo `openapi.json` actualizado.
+            - Clientes regenerados.
+            
+            *(Nota: Falta integrar la lógica de version bump para los 5 lenguajes)*
+          branch: "chore/automated-client-regeneration"
+          base: "main"
+          delete-branch: true
