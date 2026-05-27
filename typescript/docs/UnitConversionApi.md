@@ -1,14 +1,13 @@
 # UnitConversionApi
 
-All URIs are relative to _https://api.requiems.xyz_
+All URIs are relative to *https://api.requiems.xyz*
 
-| Method                                                          | HTTP request                         | Description          |
-| --------------------------------------------------------------- | ------------------------------------ | -------------------- |
-| [**v1TechnologyConvertGet**](#v1technologyconvertget)           | **GET** /v1/technology/convert       | Convert Units        |
-| [**v1TechnologyConvertUnitsGet**](#v1technologyconvertunitsget) | **GET** /v1/technology/convert/units | List Available Units |
+|Method | HTTP request | Description|
+|------------- | ------------- | -------------|
+|[**v1TechnologyConvertGet**](#v1technologyconvertget) | **GET** /v1/technology/convert | Convert Units|
+|[**v1TechnologyConvertUnitsGet**](#v1technologyconvertunitsget) | **GET** /v1/technology/convert/units | List Available Units|
 
 # **v1TechnologyConvertGet**
-
 > V1TechnologyConvertGet200Response v1TechnologyConvertGet()
 
 Convert a value from one unit to another
@@ -16,7 +15,10 @@ Convert a value from one unit to another
 ### Example
 
 ```typescript
-import { Configuration, UnitConversionApi } from "./api";
+import {
+    UnitConversionApi,
+    Configuration
+} from './api';
 
 const configuration = new Configuration();
 const apiInstance = new UnitConversionApi(configuration);
@@ -26,19 +28,20 @@ let to: string; //Target unit key (e.g. km, lb, f) (default to undefined)
 let value: number; //Numeric value to convert (default to undefined)
 
 const { status, data } = await apiInstance.v1TechnologyConvertGet(
-  from,
-  to,
-  value,
+    from,
+    to,
+    value
 );
 ```
 
 ### Parameters
 
-| Name      | Type         | Description                         | Notes                 |
-| --------- | ------------ | ----------------------------------- | --------------------- |
-| **from**  | [**string**] | Source unit key (e.g. miles, kg, c) | defaults to undefined |
-| **to**    | [**string**] | Target unit key (e.g. km, lb, f)    | defaults to undefined |
-| **value** | [**number**] | Numeric value to convert            | defaults to undefined |
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **from** | [**string**] | Source unit key (e.g. miles, kg, c) | defaults to undefined|
+| **to** | [**string**] | Target unit key (e.g. km, lb, f) | defaults to undefined|
+| **value** | [**number**] | Numeric value to convert | defaults to undefined|
+
 
 ### Return type
 
@@ -50,22 +53,18 @@ const { status, data } = await apiInstance.v1TechnologyConvertGet(
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | Successful response |  -  |
 
-| Status code | Description         | Response headers |
-| ----------- | ------------------- | ---------------- |
-| **200**     | Successful response | -                |
-
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1TechnologyConvertUnitsGet**
-
 > V1TechnologyConvertUnitsGet200Response v1TechnologyConvertUnitsGet()
 
 Returns all available unit conversion types grouped by measurement category
@@ -73,7 +72,10 @@ Returns all available unit conversion types grouped by measurement category
 ### Example
 
 ```typescript
-import { Configuration, UnitConversionApi } from "./api";
+import {
+    UnitConversionApi,
+    Configuration
+} from './api';
 
 const configuration = new Configuration();
 const apiInstance = new UnitConversionApi(configuration);
@@ -82,8 +84,8 @@ const { status, data } = await apiInstance.v1TechnologyConvertUnitsGet();
 ```
 
 ### Parameters
-
 This endpoint does not have any parameters.
+
 
 ### Return type
 
@@ -95,16 +97,14 @@ This endpoint does not have any parameters.
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | Successful response |  -  |
 
-| Status code | Description         | Response headers |
-| ----------- | ------------------- | ---------------- |
-| **200**     | Successful response | -                |
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)

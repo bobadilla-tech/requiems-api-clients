@@ -334,8 +334,8 @@ namespace Org.OpenAPITools.Api
                         ? "/v1/text/normalize/batch"
                         : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/text/normalize/batch");
 
-                    httpRequestMessageLocalVar.Content = (v1TextNormalizeBatchPostRequest as object) is Org.OpenAPITools.Client.FileParameter fileParameterLocalVar
-                        ? httpRequestMessageLocalVar.Content = new StreamContent(fileParameterLocalVar.Content)
+                    httpRequestMessageLocalVar.Content = (v1TextNormalizeBatchPostRequest as object) is System.IO.Stream stream
+                        ? httpRequestMessageLocalVar.Content = new StreamContent(stream)
                         : httpRequestMessageLocalVar.Content = new StringContent(JsonSerializer.Serialize(v1TextNormalizeBatchPostRequest, _jsonSerializerOptions));
 
                     List<TokenBase> tokenBaseLocalVars = new List<TokenBase>();
@@ -609,8 +609,8 @@ namespace Org.OpenAPITools.Api
                         ? "/v1/text/normalize"
                         : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/text/normalize");
 
-                    httpRequestMessageLocalVar.Content = (v1TextNormalizePostRequest as object) is Org.OpenAPITools.Client.FileParameter fileParameterLocalVar
-                        ? httpRequestMessageLocalVar.Content = new StreamContent(fileParameterLocalVar.Content)
+                    httpRequestMessageLocalVar.Content = (v1TextNormalizePostRequest as object) is System.IO.Stream stream
+                        ? httpRequestMessageLocalVar.Content = new StreamContent(stream)
                         : httpRequestMessageLocalVar.Content = new StringContent(JsonSerializer.Serialize(v1TextNormalizePostRequest, _jsonSerializerOptions));
 
                     List<TokenBase> tokenBaseLocalVars = new List<TokenBase>();

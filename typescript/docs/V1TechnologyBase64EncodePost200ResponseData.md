@@ -1,21 +1,20 @@
 # V1TechnologyBase64EncodePost200ResponseData
 
+
 ## Properties
 
-| Name       | Type       | Description               | Notes                             |
-| ---------- | ---------- | ------------------------- | --------------------------------- |
-| **result** | **string** | The Base64-encoded output | [optional] [default to undefined] |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**result** | **string** | The Base64-encoded output | [optional] [default to undefined]
 
 ## Example
 
 ```typescript
-import { V1TechnologyBase64EncodePost200ResponseData } from "./api";
+import { V1TechnologyBase64EncodePost200ResponseData } from './api';
 
 const instance: V1TechnologyBase64EncodePost200ResponseData = {
-  result,
+    result,
 };
 ```
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

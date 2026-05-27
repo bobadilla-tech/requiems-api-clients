@@ -1,26 +1,25 @@
 # Org.OpenAPITools.Api.DictionaryApi
 
-All URIs are relative to _https://api.requiems.xyz_
+All URIs are relative to *https://api.requiems.xyz*
 
-| Method                                                                  | HTTP request                       | Description       |
-| ----------------------------------------------------------------------- | ---------------------------------- | ----------------- |
+| Method | HTTP request | Description |
+|--------|--------------|-------------|
 | [**V1TextDictionaryWordGet**](DictionaryApi.md#v1textdictionarywordget) | **GET** /v1/text/dictionary/{word} | Dictionary Lookup |
 
 <a id="v1textdictionarywordget"></a>
-
 # **V1TextDictionaryWordGet**
-
 > V1TextDictionaryWordGet200Response V1TextDictionaryWordGet (string word)
 
 Dictionary Lookup
 
 Returns the definition, phonetics, examples, and synonyms for the given word.
 
+
 ### Parameters
 
-| Name     | Type       | Description                           | Notes |
-| -------- | ---------- | ------------------------------------- | ----- |
-| **word** | **string** | The word to look up in the dictionary |       |
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **word** | **string** | The word to look up in the dictionary |  |
 
 ### Return type
 
@@ -32,18 +31,16 @@ Returns the definition, phonetics, examples, and synonyms for the given word.
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful response |  -  |
+| **400** | The word path parameter is missing. |  -  |
+| **404** | The word was not found in the dictionary dataset. |  -  |
 
-| Status code | Description                                       | Response headers |
-| ----------- | ------------------------------------------------- | ---------------- |
-| **200**     | Successful response                               | -                |
-| **400**     | The word path parameter is missing.               | -                |
-| **404**     | The word was not found in the dictionary dataset. | -                |
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-[[Back to top]](#)
-[[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
-[[Back to README]](../../README.md)

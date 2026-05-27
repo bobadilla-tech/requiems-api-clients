@@ -1,13 +1,12 @@
 # CryptoApi
 
-All URIs are relative to _https://api.requiems.xyz_
+All URIs are relative to *https://api.requiems.xyz*
 
-| Method                                                    | HTTP request                        | Description      |
-| --------------------------------------------------------- | ----------------------------------- | ---------------- |
-| [**v1FinanceCryptoSymbolGet**](#v1financecryptosymbolget) | **GET** /v1/finance/crypto/{symbol} | Get Crypto Price |
+|Method | HTTP request | Description|
+|------------- | ------------- | -------------|
+|[**v1FinanceCryptoSymbolGet**](#v1financecryptosymbolget) | **GET** /v1/finance/crypto/{symbol} | Get Crypto Price|
 
 # **v1FinanceCryptoSymbolGet**
-
 > V1FinanceCryptoSymbolGet200Response v1FinanceCryptoSymbolGet()
 
 Returns current price data for the given cryptocurrency symbol.
@@ -15,7 +14,10 @@ Returns current price data for the given cryptocurrency symbol.
 ### Example
 
 ```typescript
-import { Configuration, CryptoApi } from "./api";
+import {
+    CryptoApi,
+    Configuration
+} from './api';
 
 const configuration = new Configuration();
 const apiInstance = new CryptoApi(configuration);
@@ -23,15 +25,16 @@ const apiInstance = new CryptoApi(configuration);
 let symbol: string; //Uppercase ticker symbol (e.g. BTC, ETH, SOL) (default to undefined)
 
 const { status, data } = await apiInstance.v1FinanceCryptoSymbolGet(
-  symbol,
+    symbol
 );
 ```
 
 ### Parameters
 
-| Name       | Type         | Description                                  | Notes                 |
-| ---------- | ------------ | -------------------------------------------- | --------------------- |
-| **symbol** | [**string**] | Uppercase ticker symbol (e.g. BTC, ETH, SOL) | defaults to undefined |
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **symbol** | [**string**] | Uppercase ticker symbol (e.g. BTC, ETH, SOL) | defaults to undefined|
+
 
 ### Return type
 
@@ -43,18 +46,16 @@ const { status, data } = await apiInstance.v1FinanceCryptoSymbolGet(
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | Successful response |  -  |
+|**422** | The symbol is not in the supported coin list. |  -  |
+|**503** | CoinGecko is unavailable or returned an unexpected response. |  -  |
 
-| Status code | Description                                                  | Response headers |
-| ----------- | ------------------------------------------------------------ | ---------------- |
-| **200**     | Successful response                                          | -                |
-| **422**     | The symbol is not in the supported coin list.                | -                |
-| **503**     | CoinGecko is unavailable or returned an unexpected response. | -                |
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)

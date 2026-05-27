@@ -1,13 +1,12 @@
 # RandomUserApi
 
-All URIs are relative to _https://api.requiems.xyz_
+All URIs are relative to *https://api.requiems.xyz*
 
-| Method                                                      | HTTP request                       | Description     |
-| ----------------------------------------------------------- | ---------------------------------- | --------------- |
-| [**v1TechnologyRandomUserGet**](#v1technologyrandomuserget) | **GET** /v1/technology/random-user | Get Random User |
+|Method | HTTP request | Description|
+|------------- | ------------- | -------------|
+|[**v1TechnologyRandomUserGet**](#v1technologyrandomuserget) | **GET** /v1/technology/random-user | Get Random User|
 
 # **v1TechnologyRandomUserGet**
-
 > V1TechnologyRandomUserGet200Response v1TechnologyRandomUserGet()
 
 Returns a randomly generated fake user profile.
@@ -15,7 +14,10 @@ Returns a randomly generated fake user profile.
 ### Example
 
 ```typescript
-import { Configuration, RandomUserApi } from "./api";
+import {
+    RandomUserApi,
+    Configuration
+} from './api';
 
 const configuration = new Configuration();
 const apiInstance = new RandomUserApi(configuration);
@@ -24,8 +26,8 @@ const { status, data } = await apiInstance.v1TechnologyRandomUserGet();
 ```
 
 ### Parameters
-
 This endpoint does not have any parameters.
+
 
 ### Return type
 
@@ -37,17 +39,15 @@ This endpoint does not have any parameters.
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | Successful response |  -  |
+|**500** | Internal server error |  -  |
 
-| Status code | Description           | Response headers |
-| ----------- | --------------------- | ---------------- |
-| **200**     | Successful response   | -                |
-| **500**     | Internal server error | -                |
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)

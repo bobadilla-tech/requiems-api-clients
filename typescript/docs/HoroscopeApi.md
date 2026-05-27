@@ -1,13 +1,12 @@
 # HoroscopeApi
 
-All URIs are relative to _https://api.requiems.xyz_
+All URIs are relative to *https://api.requiems.xyz*
 
-| Method                                                                  | HTTP request                               | Description         |
-| ----------------------------------------------------------------------- | ------------------------------------------ | ------------------- |
-| [**v1EntertainmentHoroscopeSignGet**](#v1entertainmenthoroscopesignget) | **GET** /v1/entertainment/horoscope/{sign} | Get Daily Horoscope |
+|Method | HTTP request | Description|
+|------------- | ------------- | -------------|
+|[**v1EntertainmentHoroscopeSignGet**](#v1entertainmenthoroscopesignget) | **GET** /v1/entertainment/horoscope/{sign} | Get Daily Horoscope|
 
 # **v1EntertainmentHoroscopeSignGet**
-
 > V1EntertainmentHoroscopeSignGet200Response v1EntertainmentHoroscopeSignGet()
 
 Returns a daily horoscope reading for the specified zodiac sign.
@@ -15,7 +14,10 @@ Returns a daily horoscope reading for the specified zodiac sign.
 ### Example
 
 ```typescript
-import { Configuration, HoroscopeApi } from "./api";
+import {
+    HoroscopeApi,
+    Configuration
+} from './api';
 
 const configuration = new Configuration();
 const apiInstance = new HoroscopeApi(configuration);
@@ -23,15 +25,16 @@ const apiInstance = new HoroscopeApi(configuration);
 let sign: string; //Zodiac sign (case-insensitive). Supported values: aries, taurus, gemini, cancer, leo, virgo, libra, scorpio, sagittarius, capricorn, aquarius, pisces (default to undefined)
 
 const { status, data } = await apiInstance.v1EntertainmentHoroscopeSignGet(
-  sign,
+    sign
 );
 ```
 
 ### Parameters
 
-| Name     | Type         | Description                                                                                                                                           | Notes                 |
-| -------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
-| **sign** | [**string**] | Zodiac sign (case-insensitive). Supported values: aries, taurus, gemini, cancer, leo, virgo, libra, scorpio, sagittarius, capricorn, aquarius, pisces | defaults to undefined |
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **sign** | [**string**] | Zodiac sign (case-insensitive). Supported values: aries, taurus, gemini, cancer, leo, virgo, libra, scorpio, sagittarius, capricorn, aquarius, pisces | defaults to undefined|
+
 
 ### Return type
 
@@ -43,16 +46,14 @@ const { status, data } = await apiInstance.v1EntertainmentHoroscopeSignGet(
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | Successful response |  -  |
 
-| Status code | Description         | Response headers |
-| ----------- | ------------------- | ---------------- |
-| **200**     | Successful response | -                |
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)

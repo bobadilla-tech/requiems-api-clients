@@ -255,8 +255,8 @@ namespace Org.OpenAPITools.Api
                         ? "/v1/text/sentiment"
                         : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/text/sentiment");
 
-                    httpRequestMessageLocalVar.Content = (v1TextSentimentPostRequest as object) is Org.OpenAPITools.Client.FileParameter fileParameterLocalVar
-                        ? httpRequestMessageLocalVar.Content = new StreamContent(fileParameterLocalVar.Content)
+                    httpRequestMessageLocalVar.Content = (v1TextSentimentPostRequest as object) is System.IO.Stream stream
+                        ? httpRequestMessageLocalVar.Content = new StreamContent(stream)
                         : httpRequestMessageLocalVar.Content = new StringContent(JsonSerializer.Serialize(v1TextSentimentPostRequest, _jsonSerializerOptions));
 
                     List<TokenBase> tokenBaseLocalVars = new List<TokenBase>();
