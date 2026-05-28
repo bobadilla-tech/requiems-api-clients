@@ -2,8 +2,8 @@ name: Weekly Client Regeneration
 
 on:
   schedule:
-    - cron: '0 0 * * 1' # Se ejecuta todos los lunes a la medianoche UTC
-  workflow_dispatch:    # Permite ejecutarlo manualmente desde GitHub
+    - cron: '0 0 * * 1'
+  workflow_dispatch:
 
 jobs:
   regenerate:
@@ -23,60 +23,82 @@ jobs:
       - name: 🛠️ Generar clientes y aplicar Version Bump
         id: process_clients
         run: |
-          # 1. Leer versión actual (por defecto 1.0.0 si el archivo aún no existe)
           CURRENT_VERSION=$(cat VERSION 2>/dev/null | xargs || echo "1.0.0")
           echo "Versión actual: $CURRENT_VERSION"
           
-          # Función empaquetada para generar los 5 lenguajes
           generate_clients() {
             local ver=$1
-            # Inyectamos la versión para todos los gestores de paquetes (NPM, NuGet, PyPI, RubyGems)
-            local props="packageVersion=$ver,npmVersion=$ver,gemVersion=$ver"
-            
-            npx @openapitools/openapi-generator-cli generate -i openapi.json -g typescript-axios -o typescript -p $props
-            npx @openapitools/openapi-generator-cli generate -i openapi.json -g csharp -o csharp -p $props
-            npx @openapitools/openapi-generator-cli generate -i openapi.json -g python -o python -p $props
-            npx @openapitools/openapi-generator-cli generate -i openapi.json -g ruby -o ruby -p $props
-            npx @openapitools/openapi-generator-cli generate -i openapi.json -g go -o go -p $props
+            local props="npmName=api-client,packageVersion=$ver,npmVersion=$ver,gemVersion=$ver,targetFramework=net8.0,library=httpclient"
+            npx @openapitools/openapi-generator-cli generate -i openapi.json -g typescript-axios -o clients/typescript -p $props
+            npx @openapitools/openapi-generator-cli generate -i openapi.json -g csharp -o clients/csharp -p $props
+            npx @openapitools/openapi-generator-cli generate -i openapi.json -g python -o clients/python -p $props
+            npx @openapitools/openapi-generator-cli generate -i openapi.json -g ruby -o clients/ruby -p $props
+            npx @openapitools/openapi-generator-cli generate -i openapi.json -g go -o clients/go -p $props
           }
 
-          # 2. Generar clientes con la versión actual para comparar
           generate_clients $CURRENT_VERSION
 
-          # 3. Detectar si la generación produjo cambios en el código
           if [ -n "$(git status --porcelain)" ]; then
             echo "Cambios detectados. Aplicando version bump..."
-            
-            # Sumar +1 al parche (Patch version)
             IFS='.' read -r major minor patch <<< "$CURRENT_VERSION"
             NEW_VERSION="${major}.${minor}.$((patch+1))"
-            
-            echo "Nueva versión unificada: $NEW_VERSION"
             echo $NEW_VERSION > VERSION
-            
-            # 4. Regenerar inyectando la nueva versión
             generate_clients $NEW_VERSION
-            
             echo "has_changes=true" >> $GITHUB_OUTPUT
           else
-            echo "No hay diferencias en los clientes generados."
             echo "has_changes=false" >> $GITHUB_OUTPUT
           fi
+
+      - name: 🧪 Ejecutar E2E Smoke Tests
+        if: steps.process_clients.outputs.has_changes == 'true'
+        run: |
+          echo "Building and Running TypeScript tests..."
+          cd clients/typescript && npm install && npm run build && cd ../..
+          cd example-apps/typescript && npm install && npx ts-node index.ts && cd ../..
+          
+          echo "Running C# tests..."
+          cd example-apps/csharp && dotnet run && cd ../..
+          
+          echo "Running Python tests..."
+          cd example-apps/python && pip install urllib3 pydantic python-dateutil aiohttp && python main.py && cd ../..
+          
+          echo "Running Ruby tests..."
+          cd example-apps/ruby && gem install typhoeus && ruby main.rb && cd ../..
+      
+      - name: 🧪 Ejecutar E2E Smoke Tests
+        if: steps.process_clients.outputs.has_changes == 'true'
+        run: |
+          echo "Building and Running TypeScript tests..."
+          cd clients/typescript && npm install && npm run build && cd ../..
+          cd example-apps/typescript && npm install && npx ts-node index.ts && cd ../..
+          
+          echo "Running C# tests..."
+          cd example-apps/csharp && dotnet run && cd ../..
+          
+          echo "Running Python tests..."
+          cd example-apps/python && pip install urllib3 pydantic python-dateutil aiohttp && python main.py && cd ../..
+          
+          echo "Running Ruby tests..."
+          cd example-apps/ruby && gem install typhoeus && ruby main.rb && cd ../..
+
+          echo "Running Go tests..."
+          cd clients/go && rm -f go.mod go.sum && go mod init openapi && go mod tidy && cd ../..
+          cd example-apps/go && go mod tidy && go run main.go && cd ../..    
 
       - name: 🚀 Crear Pull Request
         if: steps.process_clients.outputs.has_changes == 'true'
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "chore: regenerar clientes OpenAPI y version bump"
+          commit-message: "chore: regenerar clientes OpenAPI y ejecutar E2E tests"
           title: "Automated: Weekly Client Regeneration"
           body: |
             Se ha detectado una actualización en la especificación de la API.
             
-            Este PR automático contiene:
-            - Último archivo `openapi.json` actualizado.
+            Este PR automático incluye:
             - Clientes regenerados para JS/TS, C#, Python, Ruby y Go.
-            - **Version Bump** aplicado a todos los ecosistemas sincronizados bajo un archivo `VERSION` central.
+            - **Version Bump** aplicado.
+            - **Validación Exitosa:** Las aplicaciones de prueba E2E compilaron y ejecutaron correctamente contra el nuevo código.
           branch: "chore/automated-client-regeneration"
           base: "main"
           delete-branch: true

@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "+53+p1YXA4MD5QWHxU57p0Mpbd1EtA/+V+k9hGaEGiyjquPal/Q1j8vDz5S1Nh11vJNQWecGtiJiKvXtbKiSpg==",
+  "success": true,
+  "projectFilePath": "/home/fran/Escritorio/Code/requiems-api-clients/example-apps/csharp/ExampleApp.csproj",
+  "expectedPackageFiles": [
+    "/home/fran/.nuget/packages/jsonsubtypes/2.0.1/jsonsubtypes.2.0.1.nupkg.sha512",
+    "/home/fran/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512",
+    "/home/fran/.nuget/packages/polly/8.1.0/polly.8.1.0.nupkg.sha512",
+    "/home/fran/.nuget/packages/polly.core/8.1.0/polly.core.8.1.0.nupkg.sha512"
+  ],
+  "logs": []
+}

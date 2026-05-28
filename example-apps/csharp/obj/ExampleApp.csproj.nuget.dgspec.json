@@ -1,0 +1,132 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/fran/Escritorio/Code/requiems-api-clients/example-apps/csharp/ExampleApp.csproj": {}
+  },
+  "projects": {
+    "/home/fran/Escritorio/Code/requiems-api-clients/clients/csharp/src/Org.OpenAPITools/Org.OpenAPITools.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/fran/Escritorio/Code/requiems-api-clients/clients/csharp/src/Org.OpenAPITools/Org.OpenAPITools.csproj",
+        "projectName": "Org.OpenAPITools",
+        "projectPath": "/home/fran/Escritorio/Code/requiems-api-clients/clients/csharp/src/Org.OpenAPITools/Org.OpenAPITools.csproj",
+        "packagesPath": "/home/fran/.nuget/packages/",
+        "outputPath": "/home/fran/Escritorio/Code/requiems-api-clients/clients/csharp/src/Org.OpenAPITools/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/fran/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "JsonSubTypes": {
+              "target": "Package",
+              "version": "[2.0.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "Polly": {
+              "target": "Package",
+              "version": "[8.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.127/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/fran/Escritorio/Code/requiems-api-clients/example-apps/csharp/ExampleApp.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/fran/Escritorio/Code/requiems-api-clients/example-apps/csharp/ExampleApp.csproj",
+        "projectName": "ExampleApp",
+        "projectPath": "/home/fran/Escritorio/Code/requiems-api-clients/example-apps/csharp/ExampleApp.csproj",
+        "packagesPath": "/home/fran/.nuget/packages/",
+        "outputPath": "/home/fran/Escritorio/Code/requiems-api-clients/example-apps/csharp/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/fran/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/home/fran/Escritorio/Code/requiems-api-clients/clients/csharp/src/Org.OpenAPITools/Org.OpenAPITools.csproj": {
+                "projectPath": "/home/fran/Escritorio/Code/requiems-api-clients/clients/csharp/src/Org.OpenAPITools/Org.OpenAPITools.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.127/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
