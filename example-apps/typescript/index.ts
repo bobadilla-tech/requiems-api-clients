@@ -1,8 +1,7 @@
-import { Configuration, AdviceApi } from 'api-client';
+import { AdviceApi } from 'api-client';
 
 async function run() {
-  const config = new Configuration({ basePath: 'https://api.requiems.xyz' });
-  const api = new AdviceApi(config);
+  const api = new AdviceApi();
   try {
     await api.v1TextAdviceGet();
   } catch (e: any) {

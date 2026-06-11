@@ -1,0 +1,72 @@
+name: CI - Smoke Tests
+
+on:
+  pull_request:
+    branches: [ "main" ]
+    # El CI solo correrá si se modifican los clientes o las apps de prueba
+    paths:
+      - 'clients/**'
+      - 'example-apps/**'
+      - '.github/workflows/ci.yml'
+
+jobs:
+  test-clients:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Setup Node.js (TypeScript)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: ⚙️ Setup .NET (C#)
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: ⚙️ Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: ⚙️ Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+
+      - name: ⚙️ Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.22.x"
+
+      - name: 🧪 Test TypeScript Client
+        run: |
+          cd clients/typescript && npm install && npm run build
+          cd ../../example-apps/typescript && npm install
+          npx tsc
+          node index.js
+          
+      - name: 🧪 Test C# Client
+        run: |
+          cd example-apps/csharp && dotnet run
+
+      - name: 🧪 Test Python Client
+        run: |
+          cd example-apps/python
+          python3 -m venv venv
+          source venv/bin/activate
+          pip install urllib3 pydantic python-dateutil aiohttp
+          python3 main.py
+
+      - name: 🧪 Test Ruby Client
+        run: |
+          cd example-apps/ruby
+          gem install typhoeus
+          ruby main.rb
+
+      - name: 🧪 Test Go Client
+        run: |
+          cd clients/go && rm -rf test go.mod go.sum && go mod init openapi && go mod tidy && cd ../..
+          cd example-apps/go && go mod tidy && go run main.go

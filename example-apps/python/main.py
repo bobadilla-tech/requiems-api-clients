@@ -3,8 +3,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../c
 import openapi_client
 
 def run():
-    config = openapi_client.Configuration(host="https://api.requiems.xyz")
-    with openapi_client.ApiClient(config) as api_client:
+    with openapi_client.ApiClient() as api_client:
         api = openapi_client.AdviceApi(api_client)
         try:
             api.v1_text_advice_get()

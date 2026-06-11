@@ -1,12 +1,10 @@
 using System;
 using System.Threading.Tasks;
 using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
 
 class Program {
     static async Task Main() {
-        var config = new Configuration { BasePath = "https://api.requiems.xyz" };
-        var api = new AdviceApi(config);
+        var api = new AdviceApi();
         try {
             await api.V1TextAdviceGetAsync();
         } catch (Exception e) {

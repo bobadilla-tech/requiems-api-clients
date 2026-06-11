@@ -1,11 +1,6 @@
 $LOAD_PATH.unshift File.expand_path('../../clients/ruby/lib', __dir__)
 require 'openapi_client'
 
-OpenapiClient.configure do |config|
-  config.host = 'api.requiems.xyz'
-  config.scheme = 'https'
-end
-
 api = OpenapiClient::AdviceApi.new
 begin
   api.v1_text_advice_get

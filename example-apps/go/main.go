@@ -8,17 +8,11 @@ import (
 )
 
 func main() {
-	// Configuramos el cliente apuntando a la API
 	cfg := openapi.NewConfiguration()
-	cfg.Host = "api.requiems.xyz"
-	cfg.Scheme = "https"
-	
 	client := openapi.NewAPIClient(cfg)
 
-	// Ejecutamos el request
 	_, r, err := client.AdviceAPI.V1TextAdviceGet(context.Background()).Execute()
 	
-	// Atrapamos el error y verificamos que sea el 401 esperado
 	if err != nil {
 		if r != nil && r.StatusCode == 401 {
 			fmt.Println("✅ Go Client E2E OK (Expected 401)")
